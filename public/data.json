@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "name": "University A",
+    "teachers": 200,
+    "admissionFees": 10000,
+    "departments": [
+      {
+        "id": 101,
+        "name": "Computer Science",
+        "faculty": [
+          {
+            "id": 1001,
+            "name": "John Doe",
+            "position": "Professor"
+          },
+          {
+            "id": 1002,
+            "name": "Jane Smith",
+            "position": "Assistant Professor"
+          }
+        ]
+      },
+      {
+        "id": 102,
+        "name": "Physics",
+        "faculty": [
+          {
+            "id": 1003,
+            "name": "David Johnson",
+            "position": "Associate Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "University B",
+    "teachers": 150,
+    "admissionFees": 12000,
+    "departments": [
+      {
+        "id": 201,
+        "name": "Mathematics",
+        "faculty": [
+          {
+            "id": 1004,
+            "name": "Emily Davis",
+            "position": "Professor"
+          },
+          {
+            "id": 1005,
+            "name": "Michael Wilson",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 202,
+        "name": "Chemistry",
+        "faculty": [
+          {
+            "id": 1006,
+            "name": "Olivia Brown",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "University C",
+    "teachers": 150,
+    "admissionFees": 12000,
+    "departments": [
+      {
+        "id": 301,
+        "name": "Mathematics",
+        "faculty": [
+          {
+            "id": 1007,
+            "name": "Emily Davis",
+            "position": "Professor"
+          },
+          {
+            "id": 1008,
+            "name": "Michael Wilson",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 302,
+        "name": "Chemistry",
+        "faculty": [
+          {
+            "id": 1009,
+            "name": "Olivia Brown",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "University B",
+    "teachers": 150,
+    "admissionFees": 12000,
+    "departments": [
+      {
+        "id": 401,
+        "name": "Mathematics",
+        "faculty": [
+          {
+            "id": 1010,
+            "name": "Emily Davis",
+            "position": "Professor"
+          },
+          {
+            "id": 1011,
+            "name": "Michael Wilson",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 402,
+        "name": "Zoology",
+        "faculty": [
+          {
+            "id": 1012,
+            "name": "Olivia Brown",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "University E",
+    "teachers": 100,
+    "admissionFees": 22000,
+    "departments": [
+      {
+        "id": 501,
+        "name": "History",
+        "faculty": [
+          {
+            "id": 1013,
+            "name": "Emily Davis",
+            "position": "Professor"
+          },
+          {
+            "id": 1014,
+            "name": "Michael Wilson",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 502,
+        "name": "Chemistry",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Olivia Brown",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  }
+]

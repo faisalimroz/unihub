@@ -1,0 +1,26 @@
+.div-checkbox{
+    width: 40%;
+}
+.div-info{
+    width: 60%;
+}
+.checkbox-input {
+
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 16px;
+    height: 14px;
+    
+  }
+  
+  .checkbox-input:checked {
+   
+  }
+  
+  .checkbox-label {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 18px;
+    
+  }

@@ -1,0 +1,18 @@
+#footer{
+    place-items: center;
+    background-color: #212529;
+}
+.text-base-content {
+    color: white;
+}
+#copyright{
+    background-color: #212529;  
+}
+#copyright{
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    
+}
