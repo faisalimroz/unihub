@@ -3,3 +3,22 @@
     width: 60px;
     margin-left: 20px;
  }
+ /* Navbar.css */
+
+/* Style for regular links */
+.navbar li {
+    color: Black; /* Set your default text color */
+    text-decoration: none;
+    font-weight: 400;
+    font-size: larger; /* Remove underline */
+    padding: 10px 10px; /* Adjust padding as needed */
+    transition: color 0.3s ease; /* Add a smooth color transition */
+  }
+  
+  /* Change color on hover */
+  .navbar li:hover {
+     /* Change to your desired hover color */
+    cursor: pointer; /* Show pointer cursor on hover */
+  
+  }
+  

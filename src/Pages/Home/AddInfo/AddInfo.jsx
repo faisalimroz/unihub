@@ -1,20 +1,46 @@
-import  { useState } from 'react';
-import './AddInfo.css'
+import {  useState } from 'react';
+import axios from 'axios';
+import './AddInfo.css';
+
+
+
 const AddInfo = () => {
+ 
   const [formData, setFormData] = useState({
     universityName: '',
     teachers: 0,
     admissionFees: 0,
-    departmentName: '',
-    facultyName: '',
-    facultyPosition: '',
+    departments: [{ name: '', faculties: [{ facultyName: '', facultyPosition: '' }] }],
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e, deptIndex, facIndex) => {
+    const { name, value } = e.target;
+    const updatedFormData = { ...formData };
+
+    if (deptIndex !== undefined && facIndex !== undefined) {
+      updatedFormData.departments[deptIndex].faculties[facIndex][name] = value;
+    } else if (deptIndex !== undefined) {
+      updatedFormData.departments[deptIndex][name] = value;
+    } else {
+      updatedFormData[name] = value;
+    }
+
+    setFormData(updatedFormData);
   };
 
-  const handleSubmit = (e) => {
+  const handleAddDepartment = () => {
+    const updatedFormData = { ...formData };
+    updatedFormData.departments.push({ name: '', faculties: [{ facultyName: '', facultyPosition: '' }] });
+    setFormData(updatedFormData);
+  };
+
+  const handleAddFaculty = (deptIndex) => {
+    const updatedFormData = { ...formData };
+    updatedFormData.departments[deptIndex].faculties.push({ facultyName: '', facultyPosition: '' });
+    setFormData(updatedFormData);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate the data before submitting
@@ -22,119 +48,138 @@ const AddInfo = () => {
       formData.universityName &&
       formData.teachers >= 0 &&
       formData.admissionFees >= 0 &&
-      formData.departmentName &&
-      formData.facultyName &&
-      formData.facultyPosition
+      formData.departments.length > 0 &&
+      formData.departments.every((dept) => dept.name && dept.faculties.length > 0)
     ) {
-      // Construct the submitted data in the required format
-      const submittedData = {
-        id: 1, // You may use a dynamic ID based on your application's logic
-        name: formData.universityName,
-        teachers: formData.teachers,
-        admissionFees: formData.admissionFees,
-        departments: [
-          {
-            id: 101, // You may use a dynamic ID for departments
-            name: formData.departmentName,
-            faculty: [
-              {
-                id: 1001, // You may use a dynamic ID for faculty members
-                name: formData.facultyName,
-                position: formData.facultyPosition,
-              },
-            ],
+      try {
+        const response = await axios.post('http://localhost:5000/temporaryinfo', {
+          universityData: {
+            id: 1,
+            name: formData.universityName,
+            teachers: formData.teachers,
+            admissionFees: formData.admissionFees,
+            departments: formData.departments.map((dept, deptIndex) => ({
+              id: deptIndex + 1,
+              name: dept.name,
+              faculty: dept.faculties.map((fac, facIndex) => ({
+                id: facIndex + 1,
+                name: fac.facultyName,
+                position: fac.facultyPosition,
+              })),
+            })),
           },
-        ],
-      };
+        });
 
-      // Log the submitted data to the console
-      console.log('Submitted Data:', submittedData);
+        // Handle success, e.g., show a success message or redirect the user
+        console.log('Post Request Successful:', response.data);
 
-      // Reset the form after submission
-      setFormData({
-        universityName: '',
-        teachers: 0,
-        admissionFees: 0,
-        departmentName: '',
-        facultyName: '',
-        facultyPosition: '',
-      });
+        // Reset the form after successful submission
+        setFormData({
+          universityName: '',
+          teachers: 0,
+          admissionFees: 0,
+          departments: [{ name: '', faculties: [{ facultyName: '', facultyPosition: '' }] }],
+        });
+      } catch (error) {
+        // Log the error for debugging
+        console.error('Error during post request:', error);
+
+        // Show an error message to the user
+        alert('There was an error submitting the data. Please try again.');
+      }
     } else {
       alert('Please fill in all fields with valid data.');
     }
   };
 
   return (
-    <div>
-     
-      <form className='form-container' onSubmit={handleSubmit}>
-      <h1 className='font-bold'>Add University Data</h1>
+    <div className='mt-4 mb-4'>
+      <form className='form-container border-4 border-purple-400 '  onSubmit={handleSubmit}>
+        <h1 className='font-bold'>Add University Data</h1>
         <label className='form-label'>
           University Name:
-            <input className='form-input ' 
+          <input
+            className='form-input '
             type="text"
             name="universityName"
             value={formData.universityName}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
           />
         </label>
-        
-     
-       
-       
-      
         <br />
         <label className='form-label'>
           Teachers:
-            <input className='form-input '
+          <input
+            className='form-input '
             type="number"
             name="teachers"
             value={formData.teachers}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
           />
         </label>
         <br />
         <label className='form-label'>
           Admission Fees:
-            <input className='form-input '
+          <input
+            className='form-input '
             type="number"
             name="admissionFees"
             value={formData.admissionFees}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
           />
         </label>
         <br />
-        <label className='form-label'>
-          Department Name:
-            <input className='form-input '
-            type="text"
-            name="departmentName"
-            value={formData.departmentName}
-            onChange={handleChange}
-          />
-        </label>
+        {formData.departments.map((dept, deptIndex) => (
+          <div key={deptIndex}>
+            <label className='form-label'>
+              Department Name:
+              <input
+                className='form-input '
+                type="text"
+                name="name"
+                value={dept.name}
+                onChange={(e) => handleChange(e, deptIndex)}
+              />
+              <button type="button" onClick={handleAddDepartment}>
+                Add Department
+              </button>
+            </label>
+            {dept.faculties.map((fac, facIndex) => (
+              <div key={facIndex}>
+                <label className='form-label'>
+                  Faculty Name:
+                  <input
+                    className='form-input '
+                    type="text"
+                    name="facultyName"
+                    value={fac.facultyName}
+                    onChange={(e) => handleChange(e, deptIndex, facIndex)}
+                  />
+                </label>
+                <label className='form-label'>
+                  Faculty Position:
+                  <input
+                    className='form-input '
+                    type="text"
+                    name="facultyPosition"
+                    value={fac.facultyPosition}
+                    onChange={(e) => handleChange(e, deptIndex, facIndex)}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => handleAddFaculty(deptIndex)}
+                  >
+                    Add Faculty
+                  </button>
+                </label>
+              </div>
+            ))}
+          </div>
+        ))}
         <br />
-        <label className='form-label'>
-          Faculty Name:
-            <input className='form-input '
-            type="text"
-            name="facultyName"
-            value={formData.facultyName}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label className='form-label'>
-          Faculty Position:
-            <input className='form-input '
-            type="text"
-            name="facultyPosition"
-            value={formData.facultyPosition}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <button className='submit-button' type="submit">Submit</button>
+        <button className='submit-button bg-purple-400' type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

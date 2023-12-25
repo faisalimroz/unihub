@@ -44,6 +44,7 @@ const Login = () => {
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
+                        {loginError && <p className='bg-red-300'>{loginError}</p>}
                         <div className="form-control mt-6">
 
                             <input className="btn btn-primary" type="submit" value="Login" />

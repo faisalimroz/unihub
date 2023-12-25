@@ -8,6 +8,10 @@ import Login from "../Pages/Home/Home/Login/Login";
 import Signup from "../Pages/Home/Home/Signup/Signup";
 import AddInfo from "../Pages/Home/AddInfo/AddInfo";
 import Contactus from "../Pages/Home/Contactus/Contactus";
+import Allusers from "../Profile/Allusers/Allusers";
+import Profile from "../Layout/Profile";
+
+import AdminHome from "../Profile/AdminHome/AdminHome";
 
   export const router = createBrowserRouter([
     {
@@ -40,5 +44,21 @@ import Contactus from "../Pages/Home/Contactus/Contactus";
       }
       ]
     },
+    {
+      path: '/profile',
+      element:<Profile></Profile>,
+      children: [
+        
+        {
+          path: 'allusers', 
+          element: <Allusers></Allusers>
+        },
+        {
+          path: 'adminhome', 
+          element:<AdminHome></AdminHome>
+        }
+        
+      ]
+    }
   ]);
   

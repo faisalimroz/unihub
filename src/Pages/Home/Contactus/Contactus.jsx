@@ -3,7 +3,7 @@ import './Contactus.css'
 
 
 import Contactbanner from './Contactbanner/Contactbanner';
-import ContactForm from './ContactForm/ContactForm';
+
 const Contactus = () => {
     return (
         <div>
@@ -20,12 +20,12 @@ const Contactus = () => {
                   <div className='mail'>
                     <h1 className='font-black'>Location</h1>
                     <p>unihub@gmail.com</p>
-                    <p>+8801864562819</p>
+                    <p>+8801315376090</p>
 
                   </div>
                   <div className='mail'>
                     <h1  className='font-black'>Let's Talk</h1>
-                    <p>168/170, Ave 01, Streets Suite 666 Mirpur DOHS, Bangladesh</p>
+                    <p>242/2 Mirpur-1,Dhaka, Bangladesh</p>
                 
 
                   </div>
@@ -42,9 +42,7 @@ const Contactus = () => {
           {/* <div className='mb-5'>
               <ContactForm></ContactForm>
           </div> */}
-          <div className='mt-5'>
-             <ContactForm></ContactForm>
-          </div>
+       
         </div>
     );
 };

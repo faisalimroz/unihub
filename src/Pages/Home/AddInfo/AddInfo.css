@@ -37,8 +37,8 @@ input{
   
   .submit-button {
     padding: 10px;
-    background-color: #007bff;
-    color: rgb(255, 255, 255);
+  
+    color: black;
     border: none;
     cursor: pointer;
   }
