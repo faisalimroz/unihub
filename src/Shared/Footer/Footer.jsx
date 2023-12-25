@@ -32,7 +32,7 @@ const Footer = () => {
             <footer id='copyright' className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
                 <div className=" ">
                  
-                    <p>Copyright 2023 Unihub | Design By Shariful </p>
+                    <p>Copyright 2023 Unihub | Designed By Shariful </p>
                 </div>
 
             </footer>
