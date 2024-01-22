@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css';
 // import Swal from 'sweetalert2';
@@ -80,8 +80,8 @@ const Signup = () => {
         })
     }
     return (
-        <div className="hero min-h-screen ">
-            <div className="hero-content flex-col lg:flex-row-reverse bg-base-200">
+        <div className="hero min-h-screen  ">
+            <div className="hero-content flex-col lg:flex-row-reverse  bg-purple-400">
 
                 <div className="card md:w-1/2 flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form className="card-body"  onSubmit={handleSubmit(handleSignup)}>
@@ -121,11 +121,11 @@ const Signup = () => {
                         {signUpError && <p className='text-red-600'>{signUpError}</p>}
                         </div>
                     </form>
-                    <p><small>Already have an account? <Link to='/login'>Login</Link></small></p>
+                    <p className='ml-[100px]'><small>Already have an account? <Link to='/login'>Login</Link></small></p>
                 </div>
                 <div className="text-center lg:text-left md:w-1/2">
                     <h1 className="text-5xl font-bold">Signup now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="py-6 text-xl">Welcome to the login page. By logging in you can add university information and contribute to our website.</p>
                 </div>
             </div>
         </div>

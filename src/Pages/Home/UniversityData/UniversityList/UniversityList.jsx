@@ -1,129 +1,196 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './UniversityList.css';
-import { FaArrowRight } from "react-icons/fa";
-
+import { FaArrowRight } from 'react-icons/fa';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 const UniversityList = ({ universities, onClick }) => {
-    const [selectedUniversity, setSelectedUniversity] = useState(null);
-    const [selectedDepartment, setSelectedDepartment] = useState(null);
-    const [selectedDepartmentsFilter, setSelectedDepartmentsFilter] = useState([]);
+  const [selectedUniversity, setSelectedUniversity] = useState(null);
+  const [selectedDepartment, setSelectedDepartment] = useState(null);
+  const [selectedDepartmentsFilter, setSelectedDepartmentsFilter] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-    const handleClick = (university) => {
-        if (selectedUniversity === university) {
-            setSelectedUniversity(null);
-            setSelectedDepartment(null);
-        } else {
-            setSelectedUniversity(university);
-            setSelectedDepartment(null); // Reset selected department when changing the university
-        }
-    };
+  useEffect(() => {
+      // Automatically change the slide every 3 seconds (adjust as needed)
+      const intervalId = setInterval(() => {
+          setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
+      }, 3000);
 
-    const handleDepartmentClick = (department) => {
-        setSelectedDepartment(department);
-    };
+      return () => clearInterval(intervalId); // Cleanup the interval on component unmount
+  }, [currentSlide]);
 
-    const handleCheckboxChange = (department) => {
-        // Toggle the selected department in the filter list
-        setSelectedDepartmentsFilter((prevFilter) => {
-            if (prevFilter.includes(department)) {
-                return prevFilter.filter((selectedDept) => selectedDept !== department);
-            } else {
-                return [...prevFilter, department];
-            }
-        });
-    };
+  const totalSlides = 3; 
+  const handleClick = (university) => {
+    if (selectedUniversity === university) {
+      setSelectedUniversity(null);
+      setSelectedDepartment(null);
+    } else {
+      setSelectedUniversity(university);
+      setSelectedDepartment(null); // Reset selected department when changing the university
+    }
+  };
 
-    const isDepartmentSelected = (department) => {
-        return selectedDepartmentsFilter.includes(department);
-    };
+  const handleDepartmentClick = (department) => {
+    setSelectedDepartment(department);
+  };
 
-    // Collect unique department names from all universities
-    const allDepartments = Array.from(
-        new Set(
-            universities.reduce((departments, university) => {
-                return departments.concat(university.departments.map((department) => department.name));
-            }, [])
-        )
-    );
-
-    // Filter universities based on selected departments
-    const filteredUniversities = universities.filter((university) => {
-        if (selectedDepartmentsFilter.length === 0) {
-            // No filter applied, show all universities
-            return true;
-        } else {
-            // Check if any selected department exists in the university's departments
-            return university.departments.some((department) =>
-                selectedDepartmentsFilter.includes(department.name)
-            );
-        }
+  const handleCheckboxChange = (department) => {
+    setSelectedDepartmentsFilter((prevFilter) => {
+      if (prevFilter.includes(department)) {
+        return prevFilter.filter((selectedDept) => selectedDept !== department);
+      } else {
+        return [...prevFilter, department];
+      }
     });
+  };
 
+  const isDepartmentSelected = (department) => {
+    return selectedDepartmentsFilter.includes(department);
+  };
 
-    return (
-        <div className='flex'>
-            <div className='div-checkbox ml-5 mt-5'>
+  const allDepartments = Array.from(
+    new Set(
+      universities.reduce((departments, university) => {
+        return departments.concat(university.departments.map((department) => department.name));
+      }, [])
+    )
+  );
+
+  const filteredUniversities = universities.filter((university) => {
+    if (selectedDepartmentsFilter.length === 0) {
+      return true;
+    } else {
+      return university.departments.some((department) => selectedDepartmentsFilter.includes(department.name));
+    }
+  });
+
+  return (
+   <>
+       <div className='banner-index'>
+        <div className="hero min-h-[50vh] banners relative" id='banner'>
+            <div className='absolute lg:mr-[605px] lg:mt-[260px]'>
+                <h1 className="text-6xl font-mono text-black">Your <span style={{ color: '#FF6B55' }}>Pet </span>is a Part</h1>
+                <h1 className="py-6 text-6xl text-black font-mono">Of Our Family</h1>
+            </div>
+
+            {/* Add the Carousel component here */}
+            <Carousel selectedItem={currentSlide} onChange={(index) => setCurrentSlide(index)}>
                 <div>
-                    {/* Checkbox filters for all departments */}
-                    {allDepartments.map((department, index) => (
-                        <div key={index}>
-                            <label className='checkbox-label '>
-                                <input className='checkbox-input  '
-                                    type="checkbox"
-                                    checked={isDepartmentSelected(department)}
-                                    onChange={() => handleCheckboxChange(department)}
-                                />
-                                {department}
-                            </label>
-                        </div>
-                    ))}
+                    <img src="https://i.ibb.co/B2SgpgS/image.png" alt="Slide 1" style={{ maxHeight: '600px' }} />
                 </div>
-
-            </div>
-            <div className='div-info mt-5'>
-                <ul>
-                    {filteredUniversities.map((university, index) => (
-                        <React.Fragment key={index}>
-                            <div style={{ display: 'flex', alignItems: 'center',border: '1px solid black', padding: '5px', margin: '0 0' }} onClick={() => handleClick(university)} >
-                             {index+1}   <FaArrowRight className='ml-3 mr-2' /> {university.name}
-                            </div>
-                            {selectedUniversity && selectedUniversity.id === university.id && (
-                                <div className=''>
-                                    <p style={{ border: '1px solid black', padding: '5px', margin: '0 0' }}>Teachers: {selectedUniversity.teachers}</p>
-                                    <p style={{ border: '1px solid black', padding: '5px', margin: '0 0' }}>Admission Fees: {selectedUniversity.admissionFees}</p>
-                                    <p style={{ border: '1px solid black', padding: '5px', margin: '0 0' }}>Departments:</p>
-                                    <ul>
-                                        {university.departments.map((department, deptIndex) => (
-                                            <li style={{ border: '1px solid black', padding: '5px', margin: '0 0' }}
-                                                key={deptIndex}
-                                                onClick={() => handleDepartmentClick(department)}
-                                            >
-                                                {department.name}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    {selectedDepartment && (
-                                        <div>
-                                            <p style={{ border: '1px solid black', padding: '5px', margin: '0 0' }}>Selected Department: {selectedDepartment.name}</p>
-                                            <p style={{ border: '1px solid black', padding: '5px', margin: '0 0' }}>Faculty:</p>
-                                            <ul>
-                                                {selectedDepartment.faculty.map((facultyMember, facultyIndex) => (
-                                                    <li className='' style={{ border: '1px solid black', padding: '5px', margin: '0 0' }} key={facultyIndex}>{facultyMember.name}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </div>
-                            )}
-
-                        </React.Fragment>
-                    ))}
-                </ul>
-            </div>
-
-
-
+                <div>
+                    <img src="https://i.ibb.co/NtWYVxW/image.png" alt="Slide 2" style={{ maxHeight: '600px' }} />
+                </div>
+                <div>
+                    <img src="https://i.ibb.co/RSYkG0k/image.png" alt="Slide 3" style={{ maxHeight: '600px' }} />
+                </div>
+            </Carousel>
         </div>
-    );
+    </div>
+    <div className='flex'>
+    <div className='div-checkbox ml-5 mt-5'>
+      <div>
+        {allDepartments.map((department, index) => (
+          <div key={index} style={{ marginBottom: '5px' }} className='checkbox-container'>
+          <label
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+            
+
+          
+              backgroundColor: isDepartmentSelected(department) ? '#8a2be2' : '#fff',
+              color: isDepartmentSelected(department) ? '#fff' : '#000',
+              transition: 'background-color 0.3s, border-color 0.3s',
+            }}
+            className={`checkbox-label ${isDepartmentSelected(department) ? 'checked' : ''}`}
+          >
+            <input
+              className='checkbox-input'
+              type='checkbox'
+              checked={isDepartmentSelected(department)}
+              onChange={() => handleCheckboxChange(department)}
+              style={{ marginRight: '8px' }}
+            />
+            {department}
+          </label>
+        </div>
+        
+        ))}
+      </div>
+    </div>
+    <div className='div-info mt-5 mr-4' style={{ fontFamily: 'serif' }}>
+      <ul>
+        {filteredUniversities.map((university, index) => (
+          <React.Fragment key={index}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                border: '2px solid #8a2be2',
+                padding: '5px',
+                margin: '0 0',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleClick(university)}
+            >
+              {index + 1} <FaArrowRight className='ml-3 mr-2' /> {university.name}
+            </div>
+            {selectedUniversity && selectedUniversity._id === university._id && (
+              <div>
+                <p style={{ border: '2px solid #8a2be2', padding: '5px', margin: '0 0' }}>Teachers: {selectedUniversity.teachers}</p>
+                <p style={{ border: '2px solid #8a2be2', padding: '5px', margin: '0 0' }}>Admission Fees: {selectedUniversity.admissionFees}</p>
+                <p style={{ border: '2px solid #8a2be2', padding: '5px', margin: '0 0' }}>Departments:</p>
+                <ul>
+                  {university.departments.map((department, deptIndex) => (
+                    <li
+                      style={{
+                        border: '2px solid #8a2be2',
+                        padding: '5px',
+                        margin: '0 0',
+                        cursor: 'pointer',
+                        background: selectedDepartment && selectedDepartment.name === department.name ? '#8a2be2' : 'none',
+                        color: selectedDepartment && selectedDepartment.name === department.name ? '#fff' : '#000',
+                      }}
+                      key={deptIndex}
+                      onClick={() => handleDepartmentClick(department)}
+                    >
+                      {department.name}
+                    </li>
+                  ))}
+                </ul>
+                {selectedDepartment && (
+                  <div>
+                    {/* <p style={{ border: '2px solid #8a2be2', padding: '5px', margin: '0 0',background:'	 #d9d9d9' }}>
+                      Selected Department: {selectedDepartment.name}
+                    </p> */}
+                    <p style={{ border: '2px solid #8a2be2', padding: '5px', margin: '0 0',background:'	 #d9d9d9' }}>Faculty:</p>
+                    <ul>
+                      {selectedDepartment.faculty.map((facultyMember, facultyIndex) => (
+                        <li
+                          className=''
+                          style={{
+                            border: '1px solid #8a2be2',
+                            padding: '5px',
+                            margin: '0 0',
+                            background: '#f0f0f0', // Set background color for faculty items
+                          }}
+                          key={facultyIndex}
+                        >
+                          {facultyMember.name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
+          </React.Fragment>
+        ))}
+      </ul>
+    </div>
+  </div>
+   </>
+  );
 };
 
 export default UniversityList;

@@ -10,7 +10,7 @@ const UniversityData = () => {
 
   useEffect(() => {
     // Make an API request to fetch the data
-    axios.get("data.json")
+    axios.get("http://localhost:5000/info")
       .then((response) => {
         setUniversities(response.data);
       })

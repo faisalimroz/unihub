@@ -1,9 +1,7 @@
 import {  useState } from 'react';
 import axios from 'axios';
 import './AddInfo.css';
-
-
-
+import Swal from 'sweetalert2';
 const AddInfo = () => {
  
   const [formData, setFormData] = useState({
@@ -12,7 +10,7 @@ const AddInfo = () => {
     admissionFees: 0,
     departments: [{ name: '', faculties: [{ facultyName: '', facultyPosition: '' }] }],
   });
-
+    
   const handleChange = (e, deptIndex, facIndex) => {
     const { name, value } = e.target;
     const updatedFormData = { ...formData };
@@ -39,7 +37,6 @@ const AddInfo = () => {
     updatedFormData.departments[deptIndex].faculties.push({ facultyName: '', facultyPosition: '' });
     setFormData(updatedFormData);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -92,9 +89,10 @@ const AddInfo = () => {
     }
   };
 
+
   return (
     <div className='mt-4 mb-4'>
-      <form className='form-container border-4 border-purple-400 '  onSubmit={handleSubmit}>
+      <form  className='form-container border-4 border-purple-400 '  onSubmit={handleSubmit}>
         <h1 className='font-bold'>Add University Data</h1>
         <label className='form-label'>
           University Name:
@@ -110,7 +108,7 @@ const AddInfo = () => {
         <label className='form-label'>
           Teachers:
           <input
-            className='form-input '
+            className='form-input mr-12'
             type="number"
             name="teachers"
             value={formData.teachers}
@@ -134,38 +132,39 @@ const AddInfo = () => {
             <label className='form-label'>
               Department Name:
               <input
-                className='form-input '
+                className='form-input ml-3'
                 type="text"
                 name="name"
                 value={dept.name}
                 onChange={(e) => handleChange(e, deptIndex)}
               />
-              <button type="button" onClick={handleAddDepartment}>
+              <button type="button" className='university bg-purple-400 mt-3 ml-4 p-2 rounded' onClick={handleAddDepartment}>
                 Add Department
               </button>
             </label>
             {dept.faculties.map((fac, facIndex) => (
               <div key={facIndex}>
-                <label className='form-label'>
+                <label className='form-label ml-5'>
                   Faculty Name:
                   <input
-                    className='form-input '
+                    className='form-input ml-3'
                     type="text"
                     name="facultyName"
                     value={fac.facultyName}
                     onChange={(e) => handleChange(e, deptIndex, facIndex)}
                   />
                 </label>
-                <label className='form-label'>
+                <label className='form-label ml-3'>
                   Faculty Position:
                   <input
-                    className='form-input '
+                    className='form-input ml-3 '
                     type="text"
                     name="facultyPosition"
                     value={fac.facultyPosition}
                     onChange={(e) => handleChange(e, deptIndex, facIndex)}
                   />
                   <button
+                    className='university bg-purple-400 mt-3 p-2 rounded ml-5'
                     type="button"
                     onClick={() => handleAddFaculty(deptIndex)}
                   >
@@ -177,7 +176,7 @@ const AddInfo = () => {
           </div>
         ))}
         <br />
-        <button className='submit-button bg-purple-400' type="submit">
+        <button  className='university submit-button bold bg-purple-400 rounded p-2' type="submit">
           Submit
         </button>
       </form>

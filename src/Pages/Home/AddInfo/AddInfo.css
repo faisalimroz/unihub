@@ -18,7 +18,7 @@ input{
     margin: 0 auto;
     width: 400px;
     border: 1px solid #ccc;
-    padding: 20px;
+    padding: 10px;
   }
   
   .form-label {
@@ -36,10 +36,32 @@ input{
   }
   
   .submit-button {
-    padding: 10px;
-  
+    font-family: sans-serif;
     color: black;
-    border: none;
+    font-size: large;
     cursor: pointer;
+  }
+  .form-container {
+    border: 3px solid #8a2be2; /* Set border color to purple */
+    transition: border-color 0.3s ease-in-out; /* Add animation to border color change */
+  }
+  
+  .form-input {
+    margin-top: 5px;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out; /* Add animation to border color change */
+  }
+  
+  .form-input:focus {
+    border-color: #8a2be2; /* Change border color on focus */
+  }
+  
+  /* Add animation to button */
+  .university:hover {
+    transition: background-color 0.3s ease-in-out;
+    background-color: 	#EE82EE; /* Change background color on hover */
   }
   

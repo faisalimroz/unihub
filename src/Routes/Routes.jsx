@@ -12,6 +12,7 @@ import Allusers from "../Profile/Allusers/Allusers";
 import Profile from "../Layout/Profile";
 
 import AdminHome from "../Profile/AdminHome/AdminHome";
+import Blog from "../Pages/Home/Blog/Blog";
 
   export const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ import AdminHome from "../Profile/AdminHome/AdminHome";
       {
         path:'/addinfo',
         element:<AddInfo></AddInfo>
+      },
+      {
+        path:'/blog',
+        element:<Blog></Blog>
       },
       {
         path:'/contactus',

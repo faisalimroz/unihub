@@ -49,6 +49,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/home'>Home</Link></li>
                         <li><Link to='/addinfo'>AddInfo</Link></li>
+                        <li><Link to='/blog'>Blog</Link></li>
                     
                     
                     
@@ -88,6 +89,7 @@ const Navbar = () => {
                     <li><Link to='/home'>Home</Link></li>
                   
                     <li><Link to='/addinfo'>AddInfo</Link></li>
+                    <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/contactus'>Contact Us</Link></li>
                     
                
@@ -97,7 +99,7 @@ const Navbar = () => {
                                         <div className="dropdown dropdown-end ">
                                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                                 <div className="w-10 rounded-full ">
-                                                    <img src={user.photoURL} alt='ddd' />
+                                                    <img src='https://i.ibb.co/zVQ2bXn/image.png' alt='ddd' />
                                                 </div>
                                             </label>
                                            

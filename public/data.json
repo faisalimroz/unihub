@@ -106,7 +106,7 @@
   },
   {
     "id": 4,
-    "name": "University B",
+    "name": "University F",
     "teachers": 150,
     "admissionFees": 12000,
     "departments": [
@@ -173,5 +173,510 @@
         ]
       }
     ]
+  },
+  {
+    "id": 6,
+    "name": "University G",
+    "teachers": 100,
+    "admissionFees": 220000,
+    "departments": [
+      {
+        "id": 601,
+        "name": "Computer Science",
+        "faculty": [
+          {
+            "id": 1013,
+            "name": "Emily Davis",
+            "position": "Professor"
+          },
+          {
+            "id": 1014,
+            "name": "Michael Wilson",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 602,
+        "name": "EEE",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Olivia Brown",
+            "position": "Professor"
+          }
+        ]
+      },
+      {
+        "id": 603,
+        "name": "Textile",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Olivia Brown",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "North South University",
+    "teachers": 544,
+    "admissionFees": 25000,
+    "departments": [
+      {
+        "id": 801,
+        "name": "Department of Computer Science and Engineering",
+        "faculty": [
+          {
+            "id": 1010,
+            "name": "Dr. Mohammad Rashedur Rahman",
+            "position": "Professor"
+          },
+          {
+            "id": 1011,
+            "name": "Dr. Lamia Iftekhar",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 802,
+        "name": "Department of Pharmacy",
+        "faculty": [
+          {
+            "id": 1012,
+            "name": "Dr. Hasan Mahmud Reza",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Green University",
+    "teachers": 160,
+    "admissionFees": 20000,
+    "departments": [
+      {
+        "id": 901,
+        "name": "Department of Law",
+        "faculty": [
+          {
+            "id": 1013,
+            "name": "Dr. Farhana Helal Mehtab",
+            "position": "Professor"
+          },
+          {
+            "id": 1014,
+            "name": "Dr. Md. Mehedi Hasan",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 902,
+        "name": "Department of Sociology & Anthropology",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Dr. Abul Hossain",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Primeasia University",
+    "teachers": 200,
+    "admissionFees": 20000,
+    "departments": [
+      {
+        "id": 701,
+        "name": "Department of Computer Science and Engineering",
+        "faculty": [
+          {
+            "id": 1013,
+            "name": "Sharmin Rashid",
+            "position": "Professor"
+          },
+          {
+            "id": 1014,
+            "name": "Mohammad Ariful Huq",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 702,
+        "name": "Department of Electrical and Electronic Engineering",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Rajib Barman Roy",
+            "position": "Professor"
+          }
+        ]
+      },
+      {
+        "id": 703,
+        "name": "Depertment of Textile Engineering",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Mohammad Abdul Khaleq",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Leading University",
+    "teachers": 116,
+    "admissionFees": 20000,
+    "departments": [
+      {
+        "id": 1101,
+        "name": "Department of Computer Science and Engineering",
+        "faculty": [
+          {
+            "id": 1001,
+            "name": "Rumel M. S. Rahman Pir",
+            "position": "Associate Professor"
+          },
+          {
+            "id": 1002,
+            "name": "Sabia Akter Bhuiyan",
+            "position": "Assistant Professor"
+          }
+        ]
+      },
+      {
+        "id": 1102,
+        "name": "Department of Business Administration",
+        "faculty": [
+          {
+            "id": 1003,
+            "name": " Dr. Bashir Ahmed Bhuiyan",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Metropolitan University",
+    "teachers": 100,
+    "admissionFees": 20000,
+    "departments": [
+      {
+        "id": 1201,
+        "name": "Department of Law & Justice",
+        "faculty": [
+          {
+            "id": 1004,
+            "name": "Barrister Md. Arash Ali",
+            "position": "Professor"
+          },
+          {
+            "id": 1005,
+            "name": "Sheikh Ashrafur Rahaman",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 1202,
+        "name": "Department of Economics",
+        "faculty": [
+          {
+            "id": 1006,
+            "name": " Dr. Toufique Rahman Chowdhury",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Dhaka International University",
+    "teachers": 200,
+    "admissionFees": 25000,
+    "departments": [
+      {
+        "id": 1301,
+        "name": "Department of Civil Engineering",
+        "faculty": [
+          {
+            "id": 1007,
+            "name": "Dr. Md. Serajul Islam Prodhan",
+            "position": "Professor"
+          },
+          {
+            "id": 1008,
+            "name": "S M SAZZAD AHMED SHOVON",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 1302,
+        "name": "Department of Pharmacy",
+        "faculty": [
+          {
+            "id": 1009,
+            "name": "Professor Dr. Md. Abdul Muhit",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Bangladesh University of Business and Technology",
+    "teachers": 400,
+    "admissionFees": 15600,
+    "departments": [
+      {
+        "id": 1401,
+        "name": "Department of Computer Science and Engineering",
+        "faculty": [
+          {
+            "id": 1010,
+            "name": "Abul Lais M. S. Haque",
+            "position": "Professor"
+          },
+          {
+            "id": 1011,
+            "name": "Dr. Khandoker Nadim Parvez",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 1402,
+        "name": "Department of Management",
+        "faculty": [
+          {
+            "id": 1012,
+            "name": "Dr. Sharmina Afrin",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Manarat International University",
+    "teachers": 150,
+    "admissionFees": 16000,
+    "departments": [
+      {
+        "id": 1501,
+        "name": "Department Of Business Administration",
+        "faculty": [
+          {
+            "id": 1013,
+            "name": "Md. Harun-Ar-Rashid",
+            "position": "Professor"
+          },
+          {
+            "id": 1014,
+            "name": "Ms. Rokeya Sultana",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 1502,
+        "name": "Department of Engllish",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Hemayet Hussain Khan",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "United International University",
+    "teachers": 170,
+    "admissionFees": 20000,
+    "departments": [
+      {
+        "id": 1601,
+        "name": "Department of Computer Science and Engineering",
+        "faculty": [
+          {
+            "id": 1013,
+            "name": "Dr. Md. Abul Kashem Mia",
+            "position": "Professor"
+          },
+          {
+            "id": 1014,
+            "name": "Dr. Md. Saddam Hossain Mukta",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 1602,
+        "name": "Department of Electrical and Electronics Engineering",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Dr. M. Rezwan Khan",
+            "position": "Professor"
+          }
+        ]
+      },
+      {
+        "id": 1603,
+        "name": "Department of Civil Engineering",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Dr. Md. Mujibur Rahman",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Port City International University",
+    "teachers": 170,
+    "admissionFees": 20000,
+    "departments": [
+      {
+        "id": 1701,
+        "name": "Department of Computer Science and Engineering",
+        "faculty": [
+          {
+            "id": 1013,
+            "name": "Dr. Md. Abul Kashem Mia",
+            "position": "Professor"
+          },
+          {
+            "id": 1014,
+            "name": "Dr. Md. Saddam Hossain Mukta",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 1702,
+        "name": "Department of Electrical and Electronics Engineering",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Dr. M. Rezwan Khan",
+            "position": "Professor"
+          }
+        ]
+      },
+      {
+        "id": 1703,
+        "name": "Department of Civil Engineering",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Dr. Md. Mujibur Rahman",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "International Islamic University of Chittagong",
+    "teachers": 120,
+    "admissionFees": 16000,
+    "departments": [
+      {
+        "id": 1801,
+        "name": "Department Of Biochemistry",
+        "faculty": [
+          {
+            "id": 1013,
+            "name": "Md. Harun-Ar-Rashid",
+            "position": "Professor"
+          },
+          {
+            "id": 1014,
+            "name": "Ms. Rokeya Sultana",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 1802,
+        "name": "Department of Engllish",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Hemayet Hussain Khan",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Songargaon University",
+    "teachers": 120,
+    "admissionFees": 16000,
+    "departments": [
+      {
+        "id": 1901,
+        "name": "Department Of Applied Chemistry",
+        "faculty": [
+          {
+            "id": 1013,
+            "name": "Md. Harun-Ar-Rashid",
+            "position": "Professor"
+          },
+          {
+            "id": 1014,
+            "name": "Ms. Rokeya Sultana",
+            "position": "Associate Professor"
+          }
+        ]
+      },
+      {
+        "id": 1902,
+        "name": "Department of Engllish",
+        "faculty": [
+          {
+            "id": 1015,
+            "name": "Hemayet Hussain Khan",
+            "position": "Professor"
+          }
+        ]
+      }
+    ]
   }
+  
+
+  
+
+
+ 
 ]

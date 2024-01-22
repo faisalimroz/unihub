@@ -43,7 +43,7 @@ const Profile = () => {
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
             <ul className="menu p-4 w-80 min-h-full  text-base-content">
                 {/* Common links for all users */}
-                <li><Link to='updateprofile'><img className='h-8 w-8 ' src="https://i.ibb.co/mhq2T4p/update-user.png " alt="salary" />Update Profile</Link></li>
+                {/* <li><Link to='updateprofile'><img className='h-8 w-8 ' src="https://i.ibb.co/mhq2T4p/update-user.png " alt="salary" />Update Profile</Link></li> */}
                 
 
                 {/* Links visible only for admin */}

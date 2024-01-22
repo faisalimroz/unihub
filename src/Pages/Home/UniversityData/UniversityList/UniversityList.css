@@ -17,10 +17,19 @@
   .checkbox-input:checked {
    
   }
-  
+   
   .checkbox-label {
     display: inline-block;
     margin-left: 5px;
     font-size: 18px;
+    font-family: sans-serif;
+    
     
   }
+  
+  /* Include these styles in your project */
+
+.hidden-checkbox {
+  display: none;
+  visibility: hidden;
+}
