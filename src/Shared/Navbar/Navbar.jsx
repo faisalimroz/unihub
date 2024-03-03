@@ -89,7 +89,7 @@ const Navbar = () => {
                     <li><Link to='/home'>Home</Link></li>
                   
                     <li><Link to='/addinfo'>AddInfo</Link></li>
-                    <li><Link to='/blog'>Blog</Link></li>
+                    <li><Link to='/blog'>List</Link></li>
                     <li><Link to='/contactus'>Contact Us</Link></li>
                     
                
@@ -98,8 +98,8 @@ const Navbar = () => {
                                     user?.uid ? (
                                         <div className="dropdown dropdown-end ">
                                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                                <div className="w-10 rounded-full ">
-                                                    <img src='https://i.ibb.co/zVQ2bXn/image.png' alt='ddd' />
+                                                <div className="w-10 rounded-full mt-2">
+                                                    <img src={user.photoURL} alt='ddd' />
                                                 </div>
                                             </label>
                                            

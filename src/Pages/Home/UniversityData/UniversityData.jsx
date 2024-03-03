@@ -1,4 +1,3 @@
-// UniversityData.js
 import { useEffect, useState } from 'react';
 import './UniversityData.css';
 import UniversityList from './UniversityList/UniversityList';
@@ -9,7 +8,7 @@ const UniversityData = () => {
   const [universities, setUniversities] = useState([]);
 
   useEffect(() => {
-    // Make an API request to fetch the data
+    // Api request to fetch the data
     axios.get("http://localhost:5000/info")
       .then((response) => {
         setUniversities(response.data);
@@ -24,7 +23,7 @@ const UniversityData = () => {
   };
 
   const handleDepartmentClick = (department) => {
-    // Handle the department click, you can fetch faculty data here if needed
+ 
     console.log("Clicked on department:", department);
   };
 
