@@ -10,7 +10,7 @@ const AdminHome = () => {
   useEffect(() => {
     const fetchPendingData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/temporaryinfo');
+        const response = await axios.get('unihub-server.vercel.app/temporaryinfo');
         setPendingData(response.data);
       } catch (error) {
         console.error('Error fetching pending data:', error);
@@ -25,10 +25,10 @@ const AdminHome = () => {
   
     try {
       // Send the original data to the '/info' endpoint
-      await axios.post('http://localhost:5000/info', selectedData);
+      await axios.post('unihub-server.vercel.app/info', selectedData);
   
       // Delete the data from 'temporaryinfo' using the original _id
-      await axios.delete(`http://localhost:5000/temporaryinfo/${selectedData._id}`);
+      await axios.delete(`unihub-server.vercel.app/temporaryinfo/${selectedData._id}`);
      
       setSelectedData(null);
       setPendingData((prevData) => prevData.filter((data) => data._id !== selectedData._id));
@@ -42,7 +42,7 @@ const AdminHome = () => {
     if (!selectedData) return;
 
     try {
-      await axios.delete(`http://localhost:5000/temporaryinfo/${selectedData._id}`);
+      await axios.delete(`unihub-server.vercel.app/temporaryinfo/${selectedData._id}`);
       setSelectedData(null);
       setPendingData((prevData) => prevData.filter((data) => data._id !== selectedData._id));
       alert('Data rejected and removed successfully!');

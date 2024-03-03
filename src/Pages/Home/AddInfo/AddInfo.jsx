@@ -49,7 +49,7 @@ const AddInfo = () => {
       formData.departments.every((dept) => dept.name && dept.faculties.length > 0)
     ) {
       try {
-        const response = await axios.post('http://localhost:5000/temporaryinfo', {
+        const response = await axios.post('unihub-server.vercel.app/temporaryinfo', {
           universityData: {
             id: 1,
             name: formData.universityName,

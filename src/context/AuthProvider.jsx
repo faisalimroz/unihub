@@ -32,7 +32,7 @@ const verifyEmail=()=>{
         setUser(currentUser);
         console.log('current user',currentUser)
         if(currentUser){
-            axios.post('http://localhost:5000/jwt',{email:currentUser.email})
+            axios.post('unihub-server.vercel.app/jwt',{email:currentUser.email})
             .then(data=>{
                 console.log(data.data.token)
                 

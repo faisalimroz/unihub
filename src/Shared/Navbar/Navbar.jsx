@@ -18,7 +18,7 @@ const Navbar = () => {
         const fetchUserRole = async () => {
           try {
             // Replace 'YOUR_API_ENDPOINT' with the actual endpoint to fetch the user role from MongoDB
-            const response = await fetch(`http://localhost:5000/users/${user.email}`);
+            const response = await fetch(`unihub-server.vercel.app/users/${user.email}`);
             const data = await response.json();
     
             if (data && data.role === 'admin') {
@@ -49,7 +49,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/home'>Home</Link></li>
                         <li><Link to='/addinfo'>AddInfo</Link></li>
-                        <li><Link to='/blog'>Blog</Link></li>
+                        <li><Link to='/list'>List</Link></li>
                     
                     
                     
@@ -89,7 +89,7 @@ const Navbar = () => {
                     <li><Link to='/home'>Home</Link></li>
                   
                     <li><Link to='/addinfo'>AddInfo</Link></li>
-                    <li><Link to='/blog'>List</Link></li>
+                    <li><Link to='/list'>List</Link></li>
                     <li><Link to='/contactus'>Contact Us</Link></li>
                     
                

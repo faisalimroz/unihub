@@ -9,7 +9,7 @@ const UniversityData = () => {
 
   useEffect(() => {
     // Api request to fetch the data
-    axios.get("http://localhost:5000/info")
+    axios.get("unihub-server.vercel.app/info")
       .then((response) => {
         setUniversities(response.data);
       })

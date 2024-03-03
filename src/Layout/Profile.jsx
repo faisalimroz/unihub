@@ -11,7 +11,7 @@ const Profile = () => {
       const fetchUserRole = async () => {
         try {
           // Replace 'YOUR_API_ENDPOINT' with the actual endpoint to fetch the user role from MongoDB
-          const response = await fetch(`http://localhost:5000/users/${user.email}`);
+          const response = await fetch(`unihub-server.vercel.app/users/${user.email}`);
           const data = await response.json();
   
           if (data && data.role === 'admin') {

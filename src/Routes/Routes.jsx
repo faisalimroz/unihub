@@ -40,7 +40,7 @@ import Blog from "../Pages/Home/Blog/Blog";
         element:<AddInfo></AddInfo>
       },
       {
-        path:'/blog',
+        path:'/list',
         element:<Blog></Blog>
       },
       {
