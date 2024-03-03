@@ -8,7 +8,7 @@ const AllUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('unihub-server.vercel.app/users');
+        const response = await fetch('https://unihub-server-ne3q.vercel.app//users');
         if (!response.ok) {
           throw new Error('Error fetching users');
         }
@@ -25,7 +25,7 @@ const AllUsers = () => {
   const handleDelete = async (user) => {
     try {
       // Use fetch with DELETE method to delete the user
-      const response = await fetch(`unihub-server.vercel.app/users/${user._id}`, {
+      const response = await fetch(`https://unihub-server-ne3q.vercel.app//users/${user._id}`, {
         method: 'DELETE',
       });
 
@@ -46,7 +46,7 @@ const AllUsers = () => {
       event.preventDefault();
   
       // Use fetch with PATCH method to update the user's role to 'admin'
-      const response = await fetch(`unihub-server.vercel.app/users/${user._id}`, {
+      const response = await fetch(`https://unihub-server-ne3q.vercel.app//users/${user._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

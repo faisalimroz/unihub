@@ -4,7 +4,7 @@ import UniversityData from '../UniversityData/UniversityData';
 const Home = () => {
     return (
         <div>
-     
+        
           <UniversityData></UniversityData>
         </div>
     );

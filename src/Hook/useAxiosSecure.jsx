@@ -6,7 +6,7 @@ import useAuth from './useAuth';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'unihub-server.vercel.app', 
+  baseURL: 'https://unihub-server-ne3q.vercel.app/', 
 });
 
 const useAxiosSecure = () => {

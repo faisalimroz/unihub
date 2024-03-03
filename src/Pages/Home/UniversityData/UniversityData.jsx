@@ -9,14 +9,14 @@ const UniversityData = () => {
 
   useEffect(() => {
     // Api request to fetch the data
-    axios.get("unihub-server.vercel.app/info")
+    axios.get("https://unihub-server-ne3q.vercel.app//info")
       .then((response) => {
         setUniversities(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, []); 
 
   const handleUniversityClick = (university) => {
     setSelectedUniversity(university);

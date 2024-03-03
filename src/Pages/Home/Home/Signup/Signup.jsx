@@ -66,7 +66,7 @@ const Signup = () => {
       };
     const saveUser=(name,email)=>{
         const user={name,email};
-        fetch('unihub-server.vercel.app/users',{
+        fetch('https://unihub-server-ne3q.vercel.app//users',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
